@@ -29,7 +29,6 @@ def add_data(request):
   fail = {
     "data":"failure: fields not valid"
   }
-
   return JsonResponse(fail)
 
 
@@ -44,6 +43,7 @@ def get_data(request):
   all_data = DataPacket.objects.all()
   serial_all_data = DataPacketSerializer(all_data, many=True)
   return Response(serial_all_data.data)
+  
 
 @api_view(['DELETE'])
 def delete_data(request):
