@@ -8,10 +8,10 @@ class DataPacketSerializer(serializers.ModelSerializer):
   class Meta:
     model = DataPacket
     fields = (
-        'time',
-        'vboost_1',
-        'vboost_2',
-        'vboost_3',
+        # 'time',
+        # 'vboost_1',
+        # 'vboost_2',
+        # 'vboost_3',
         # 'battery_volt',
         # 'current_in_1',
         # 'current_in_2',
