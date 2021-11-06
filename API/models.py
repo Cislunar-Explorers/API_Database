@@ -5,10 +5,10 @@ class DataPacket(models.Model):
   """
   defines the fields for the Datapacket sqlite table 
   """
-  # time = models.FloatField()
-  # vboost_1 = models.FloatField()
-  # vboost_2 = models.FloatField()
-  # vboost_3 = models.FloatField()
+  time = models.FloatField()
+  vboost_1 = models.FloatField()
+  vboost_2 = models.FloatField()
+  vboost_3 = models.FloatField()
   # battery_volt = models.FloatField()
   # current_in_1 = models.FloatField()
   # current_in_2 = models.FloatField()
