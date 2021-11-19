@@ -13,7 +13,14 @@ from django.http import JsonResponse
 from .models import DataPacket
 from .serializers import DataPacketSerializer
 
-import uuid
+
+
+@api_view(['GET'])
+def test_connection(request):
+  """
+  required by simplejson grafana source to test connection
+  """
+  return Response (status=status.HTTP_200_OK);
 
 
 @api_view(['POST'])
