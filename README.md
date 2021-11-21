@@ -1,3 +1,19 @@
-# this is the deployed django API that handles the SQLite database. 
-The heroku deployment pipeline is connected directly to the master branch of this 
-repository. Any changes made to master is automatically deployed.
+# About
+This program contains a Django API connected to an embedded SQLite database. API endpoints follow Django REST and Grafana query conventions. 
+
+# Set Up Instructions
+1. Environment: create a virtual environment, cd into virtual environment, and install requirements.
+```
+python -m venv venv
+cd venv
+pip install -r requirements
+```
+2. Database: create and migrate sqlite table
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+3. Django API: Run the server!
+```
+python manage.py runserver
+```

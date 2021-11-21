@@ -1,69 +1,12 @@
 from rest_framework import serializers
 from .models import DataPacket
+from .sensor_list import sensor_list
+
 
 class DataPacketSerializer(serializers.ModelSerializer):
-  """
-  serializes the data into JSON
-  """
-  class Meta:
-    model = DataPacket
-    fields = (
-        'time',
-        'vboost_1',
-        'vboost_2',
-        'vboost_3',
-        'battery_volt',
-        'current_in_1',
-        'current_in_2',
-        'current_in_3',
-        'system_current',
-        'reserved1',
-        'curout1',
-        'curout2',
-        'curout3',
-        'curout4',
-        'curout5',
-        'curout6',
-        'outputs',
-        'latchups',
-        'latchups4',
-        'latchups5',
-        'latchups6',
-        'wdt_time_left_I2C',
-        'wdt_time_left_GND',
-        'wdt_counts_I2C',
-        'wdt_counts_GND',
-        'gom_boots',
-        'gom_battmode',
-        'hk_temp_1',
-        'hk_temp_2',
-        'hk_temp_3',
-        'hk_temp_4',
-        'gom_ppt_mode',
-        'reserved2',
-        'rtc_time',
-        'rpi_cpu',
-        'rpi_ram',
-        'rpi_dsk',
-        'rpi_temp',
-        'rpi_boot',
-        'rpi_uptime',
-        'gyrox',
-        'gyroz',
-        'accx',
-        'accy',
-        'accz',
-        'magx',
-        'magy',
-        'magz',
-        'gyro_temp',
-        'thermocouple_temp',
-        'prop_tank_pressure',
-        'position_x',
-        'position_y',
-        'position_z',
-        'att_1',
-        'att_2',
-        'att_3',
-        'att_4'
-    )
+    """
+    serializes the data into json format accepted by DataPacket table
+    """
+    class Meta:
+        model = DataPacket
+        fields = tuple(sensor_list)
