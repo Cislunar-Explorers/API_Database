@@ -60,7 +60,7 @@ sensor_list = [
     'position_y',
     'position_z',
     'attitude_1',
-    'attitutde_2',
+    'attitude_2',
     'attitude_3',
     'attitude_4',
 ]
