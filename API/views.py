@@ -139,10 +139,7 @@ def add_data(request):
         serial_data.save()
         return Response(serial_data.data, status=status.HTTP_201_CREATED)
 
-    fail = {
-        "data": "failure: fields not valid"
-    }
-    return JsonResponse(fail)
+    return JsonResponse(serial_data.error_messages)
 
 
 @api_view(['GET'])
@@ -167,4 +164,4 @@ def delete_data(request):
     deleted = {
         "data": "all deleted. not recoverable :)"
     }
-    return Response(status=status.HTTP_200_OK)
+    return Response(data=json.dumps(deleted), status=status.HTTP_200_OK)
