@@ -15,6 +15,6 @@ python manage.py migrate
 ```
 3. Django API: Run the server!
 ```
-python manage.py  s
+python manage.py runserver
 ```
 
