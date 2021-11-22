@@ -14,8 +14,6 @@ from .models import DataPacket
 from .serializers import DataPacketSerializer
 from .sensor_list import sensor_list
 
-import json
-
 headers_app = {'Content-type': 'application/json'}
 
 # -------------------------------------------------------------------
@@ -36,9 +34,7 @@ def data_series(request):
     """
     return names of data series available
     """
-    data_series_json = json.dumps(sensor_list)
-
-    return Response(data=data_series_json, headers=headers_app)
+    return Response(data=sensor_list, headers=headers_app)
 
 
 @api_view(['POST'])
@@ -50,8 +46,7 @@ def handle_query(request):
     # table
     if request.json['targets'][0]['type'] == 'table':
         series = request.json['targets'][0]['target']
-        data_json = json.dumps(table_format(series))
-        return Response(data=data_json, headers=headers_app)
+        return Response(data=table_format(series), headers=headers_app)
 
     # plot
     else:
@@ -65,9 +60,8 @@ def handle_query(request):
                 'target': series,
                 'datapoints': datapoints
             })
-        data_json = json.dumps(body)
 
-        return Response(data=json.dumps(), headers=headers_app)
+        return Response(data=body, headers=headers_app)
 
 
 # helper functions for table format
@@ -109,6 +103,9 @@ def rows_format(field_name: str):
 # helper function for time series plot format
 
 def datapoints_format(fieldname: str, start: int, end: int):
+    """
+    returns all tehe datapoints in [data, time] format
+    """
     backwards_list = rows_format(fieldname)
 
     datapoints = []
@@ -164,4 +161,4 @@ def delete_data(request):
     deleted = {
         "data": "all deleted. not recoverable :)"
     }
-    return Response(data=json.dumps(deleted), status=status.HTTP_200_OK)
+    return Response(data=deleted, status=status.HTTP_200_OK)
