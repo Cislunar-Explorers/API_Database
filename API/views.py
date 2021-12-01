@@ -44,16 +44,18 @@ def handle_query(request):
     then calls function to return appropriate response.
     """
     # table
-    if request.json['targets'][0]['type'] == 'table':
-        series = request.json['targets'][0]['target']
-        return Response(data=table_format(series), headers=headers_app)
+    if request.data['targets'][0]['type'] == 'table':
+        series = request.data['targets'][0]['target']
+        table = table_format(series)
+        table_dict = {series:table}
+        return Response(data=table_dict, headers=headers_app)
 
     # plot
     else:
         body = []
-        start, end = request.json['range']['from'], request.json['range']['to']
+        start, end = request.data['range']['from'], request.data['range']['to']
 
-        for target in request.json['targets']:
+        for target in request.data['targets']:
             series = target['target']
             datapoints = datapoints_format(series, start, end)
             body.append({
@@ -94,7 +96,7 @@ def rows_format(field_name: str):
 
     table = []
     for i in range(len(data_list)):
-        table_entry = [time_list[i], data_list[i]]
+        table_entry = [time_list[i][0], data_list[i][0]]
         table.append(table_entry)
 
     return table
