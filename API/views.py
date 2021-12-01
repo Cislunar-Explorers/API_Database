@@ -14,6 +14,9 @@ from .models import DataPacket
 from .serializers import DataPacketSerializer
 from .sensor_list import sensor_list
 
+from datetime import datetime
+from calendar import timegm
+
 headers_app = {'Content-type': 'application/json'}
 
 # -------------------------------------------------------------------
@@ -54,6 +57,10 @@ def handle_query(request):
     else:
         body = []
         start, end = request.data['range']['from'], request.data['range']['to']
+
+        # FOR DEBUGGING, DELETE AFTER TESTING FROM _HERE_
+        print(f"times parsed from request: {start}, {end}")
+        # _ TO HERE_
 
         for target in request.data['targets']:
             series = target['target']
@@ -101,12 +108,18 @@ def rows_format(field_name: str):
 
     return table
 
+# helper functions for time series plot format
 
-# helper function for time series plot format
-
-def datapoints_format(fieldname: str, start: int, end: int):
+def convert_to_unix(timestamp: str):
     """
-    returns all tehe datapoints in [data, time] format
+    converts grafana time stamp -> unix time stamp
+    """
+    return 1000 * timegm(datetime.strptime(timestamp,'%Y-%m-%dT%H:%M:%S.%fZ').timetuple())
+
+    
+def datapoints_format(fieldname: str, start: str, end: str):
+    """
+    returns all the datapoints in [data, time] format
     """
     backwards_list = rows_format(fieldname)
 
@@ -116,13 +129,18 @@ def datapoints_format(fieldname: str, start: int, end: int):
 
         # TODO IMPORTANT: optimize by replacing this with a filter query!!!!!
         # read QuerySet API documentation : https://docs.djangoproject.com/en/3.2/ref/models/querysets/
+        
+        # DELETE LATER, FOR DEBUGGING
+        print(f"converted range: {convert_to_unix(start)} to  {convert_to_unix(end)}")
+        print(f"comparing to {time}")
+        # DEBUGGING DELETE END HERE
 
-        if (start < time < end):
+        ### EPOCH TIME
+        if (convert_to_unix(start) < time < convert_to_unix(end)):
             datap = [backwards_list[i][1], time]
             datapoints.append(datap)
 
     return datapoints
-
 
 # -------------------------------------------------------------------
 # endpoints for UDP connection
