@@ -11,5 +11,5 @@ if errors running the bash script, run each command in sh setup.sh manually
 # Run Instructions
 run the following in the base directory
 ```
-sh setup.sh
+sh run.sh
 ```
