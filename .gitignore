@@ -7,6 +7,8 @@ ENV/
 env.bak/
 venv.bak/
 cislunar-venv/
+django-venv/
+/django-venv
 __pycache__/
 
 # Django
