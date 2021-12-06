@@ -29,7 +29,9 @@ SECRET_KEY = 'django-insecure-fpu(+p9u1xlq_)5ssgjb4chmshb$f9u3ltkzcomf$s!@#)sgg$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'cislunar-data.herokuapp.com'
+]
 
 
 # Application definition
