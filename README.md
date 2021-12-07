@@ -1,6 +1,6 @@
 # Data Pipeline Overview
 <p align="center">
-  <img src="/media/frame.png" width="600" title="hover text" alt="data pipeline schematic here">
+  <img src="/media/frame.png" width="750" title="hover text" alt="data pipeline schematic here">
 </p>
 
 This repository concerns the Django(server) step of the pipeline. The Django server provides an API over the embedded SQLite database. This handles all requests related to storing and retrieving data. This is an independent system (does not require any other steps in the data pipeline to be running concurrently).
