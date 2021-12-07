@@ -1,17 +1,17 @@
-# Data Pipeline Overview
+# About
+This repository contains the API step of the data pipeline (view Data Pipeline Overview diagram below). This is an API for a SQL database. The API follows the Django REST framework format. Both the database and API are currently deployed on Heroku. The deployment process for Heroku is connected directly to this repository; any changes to the master branch will trigger redeployment. 
+
+## Data Pipeline Overview
 <p align="center">
   <img src="/media/frame.png" width="750" title="hover text" alt="data pipeline schematic here">
 </p>
 
-This repository concerns the Django(server) step of the pipeline. The Django server provides an API over the embedded SQLite database. This handles all requests related to storing and retrieving data. This is an independent system (does not require any other steps in the data pipeline to be running concurrently).
+Information on other steps can be found below: 
+- <a href = "https://github.com/Cislunar-Explorers/FlightSoftware/tree/master/udp_client"> UDP Client </a>
+- <a href = "https://github.com/Cislunar-Explorers/GroundSoftware/tree/main/UDP_groundstation"> UDP Server </a>
+- <a href = "https://www.google.com/search?q=grafana"> Grafana (doc coming soon) </a>
 
-For information on the UDP client step, view: https://github.com/Cislunar-Explorers/FlightSoftware/tree/master/udp_client
-
-For information on the UDP server step, view: https://github.com/Cislunar-Explorers/GroundSoftware/tree/main/UDP_groundstation
-
-For information on the Grafana step, view: (doc coming soon)
-
-# Additional Documentation:
+# Additional Documentation for current repository/API:
 - <a href = "">API endpoints</a>
 - <a href = "">Additions to the data pipeline<a/>
 
