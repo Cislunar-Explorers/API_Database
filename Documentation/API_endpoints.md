@@ -3,11 +3,11 @@
 <i> "POST" request to https://cislunar-data.herokuapp.com/addData</i> 
 - Required request data: json dictionary of all database fields and corresponding Float convertible values.
 - Returns: json dictionary of the newly stored data
-
+</br>
 <i> "GET" request to https://cislunar-data.herokuapp.com/getData</i> 
 - Required request data: none
 - Returns: json dictionary of all stored data
-
+</br>
 <i> "DELETE" request to https://cislunar-data.herokuapp.com/deleteALLData</i> 
 - Required request data: none
 - Returns: json string message describing completed action
@@ -18,7 +18,9 @@ The behavior of the following datapoints (required/returns) were implemented to 
 
 <i> "GET" request to https://cislunar-data.herokuapp.com/</i> 
 - for testing connection
+</br>
 <i> "POST" request to https://cislunar-data.herokuapp.com/search</i>
-- returns names of the data fields available to be queried/displayed 
+- returns names of the data fields available to be queried/displayed
+</br>  
 <i> "POST" request to https://cislunar-data.herokuapp.com/query</i> 
 - returns data, format depends on grafana's request data
