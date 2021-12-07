@@ -14,7 +14,7 @@ Information on other steps can be found below:
 - <a href = "https://www.google.com/search?q=grafana"> Grafana (doc coming soon) </a>
 
 # Additional documentation for current repository
-- <a href = "">Set up and run locally</a>
+- <a href = "/Documentation/Additions.md">Set up and run locally</a>
 - <a href = "">API endpoints</a>
 - <a href = "">Process for adding to the data pipeline</a>
 - <a href = "">Testing<a/>
