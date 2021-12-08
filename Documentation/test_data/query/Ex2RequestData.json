@@ -1,0 +1,22 @@
+{
+    "panelId": 1,
+    "range": {
+      "from": "2021-11-18T06:33:44.866Z",
+      "to": "2021-11-20T12:33:44.866Z",
+      "raw": {
+        "from": "now-6h",
+        "to": "now"
+      }
+    },
+    "rangeRaw": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "interval": "30s",
+    "intervalMs": 30000,
+    "targets": [
+       { "target": "vboost_1", "refId": "A", "type": "timeserie" }
+    ],
+    "format": "json",
+    "maxDataPoints": 550
+  }

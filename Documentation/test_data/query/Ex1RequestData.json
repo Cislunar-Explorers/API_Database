@@ -1,0 +1,7 @@
+{
+    "targets":[{
+        "target": "vboost_1", 
+        "refid":"A",
+        "type":"table"
+    }]
+}
