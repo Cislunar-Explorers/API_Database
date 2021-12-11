@@ -95,7 +95,8 @@ def rows_format(field_name: str):
     """
     returns the column row format for the data field requested
     """
-    data_query_set = DataPacket.objects.all().values_list(field_name)
+    #data_query_set = DataPacket.objects.all().values_list(field_name)
+    data_query_set = DataPacket.objects.all().values_list(field_name).order_by("time")
     data_list = [datapoint for datapoint in list(data_query_set)]
 
     time_query_set = DataPacket.objects.all().values_list('time')
