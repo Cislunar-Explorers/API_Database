@@ -168,7 +168,7 @@ def get_data(request):
     note@myself: maybe fix this later so it only returns the data from the most recent 
     period of time.
     """
-    all_data = DataPacket.objects.all()
+    all_data = DataPacket.objects.all().order_by("time")
     serial_all_data = DataPacketSerializer(all_data, many=True)
     return Response(serial_all_data.data)
 
