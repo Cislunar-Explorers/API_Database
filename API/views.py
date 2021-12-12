@@ -172,6 +172,15 @@ def get_data(request):
     serial_all_data = DataPacketSerializer(all_data, many=True)
     return Response(serial_all_data.data)
 
+@api_view(['GET'])
+def get_data_notsorted(request):
+    """
+    for comparison testing.
+    """
+    all_data = DataPacket.objects.all()
+    serial_all_data = DataPacketSerializer(all_data, many=True)
+    return Response(serial_all_data.data)
+
 
 @api_view(['DELETE'])
 def delete_data(request):
